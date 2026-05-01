@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Inter", serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  overflow: hidden;
+}
+
+.light-mode body {
+  background-color: white;
+  color: black;
+}
+
+/* Header Styles */
+header {
+  width: 100%;
+  padding: 1.5rem 2rem 0 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header-divider {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 0 2rem;
+  flex: 1;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 1rem;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 1rem;
+}
+
+/* Rest of your existing styles */
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 0.625rem;
+}
+
+.socials:hover > :not(:hover) {
+  opacity: 0.4;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+}
+
+.theme-toggle svg:nth-child(1) {
+  display: block;
+}
+.theme-toggle svg:nth-child(2) {
+  display: none;
+}
+
+.light-mode .theme-toggle svg:nth-child(1) {
+  display: none;
+}
+
+.light-mode .theme-toggle svg:nth-child(2) {
+  display: block;
+}
+
+footer {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+footer .header-divider {
+  padding-bottom: 0.5rem;
+}
+
+.footertwo {
+  display: none;
+}
