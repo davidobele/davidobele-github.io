@@ -72,6 +72,11 @@ main {
   font-size: 1rem;
 }
 
+.error a {
+  text-decoration: underline;
+  color: inherit;
+}
+
 /* Rest of your existing styles */
 .socials {
   display: flex;
