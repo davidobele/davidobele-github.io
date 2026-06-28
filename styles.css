@@ -11,200 +11,67 @@ a {
   color: inherit;
 }
 
-/* Theme styling variables */
-:root {
-  --bg-color: #0b0b0b;
-  --text-color: #ffffff;
-  --divider-color: rgba(255, 255, 255, 0.15);
-  --toggle-bg: #222222;
-  --toggle-text: #8e8e93;
-  --toggle-text-active: #000000;
-  --slider-bg: #ffffff;
-  --icon-color: #f5f5f7;
-}
-
-.light-mode {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --divider-color: rgba(0, 0, 0, 0.15);
-  --toggle-bg: #e3e3e6;
-  --toggle-text: #636366;
-  --toggle-text-active: #000000;
-  --slider-bg: #ffffff;
-  --icon-color: #000000;
-}
-
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", serif;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 0.5rem 2rem;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  overflow: hidden;
+  background-color: black;
+  color: white;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+  overflow: hidden;
 }
 
+.light-mode body {
+  background-color: white;
+  color: black;
+}
+
+/* Header Styles */
 header {
   width: 100%;
-  padding: 1.5rem 0 0 0;
+  padding: 1.5rem 2rem 0 2rem;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.header-content h1 {
-  transition: font-size 0.2s ease;
-  font: 2em;
-}
-
-/* Divider & Tab Layout fixes */
-.divider-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 1.5rem; /* Forces clean space between lines and controller */
-}
-
-.header-divider {
-  flex: 1;
-  border: none;
-  border-top: 1px solid var(--divider-color);
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* 3-Part Segmented Control */
-.toggle-wrapper {
-  position: relative;
-  display: inline-flex;
-  background-color: var(--toggle-bg);
-  padding: 3px;
-  border-radius: 999px; /* Pill shape */
-  align-items: center;
-  width: 280px; /* Locked width so elements align nicely */
-}
-
-.toggle-wrapper input[type="radio"] {
-  display: none;
-}
-
-.toggle-wrapper label {
-  flex: 1;
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 6px 0;
-  text-align: center;
-  color: var(--toggle-text);
-  cursor: pointer;
-  border-radius: 999px;
-  z-index: 2;
-  transition:
-    color 0.2s ease,
-    font-weight 0.2s ease;
-}
-
-/* Moving slider pill background */
-.toggle-slider {
-  position: absolute;
-  height: calc(100% - 6px);
-  width: calc(
-    (100% - 6px) / 3
-  ); /* Accounts perfectly for the container's 3px padding on both sides */
-  top: 3px;
-  left: 3px;
-  background-color: var(--slider-bg);
-  border-radius: 999px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-}
-
-/* Slide distances calculated via percentage */
-#toggle-about:checked ~ .toggle-slider {
-  transform: translateX(0);
-}
-
-#toggle-apps:checked ~ .toggle-slider {
-  transform: translateX(100%);
-}
-
-#toggle-contact:checked ~ .toggle-slider {
-  transform: translateX(200%);
-}
-
-/* Text adjustments on active focus */
-#toggle-about:checked ~ label[for="toggle-about"],
-#toggle-apps:checked ~ label[for="toggle-apps"],
-#toggle-contact:checked ~ label[for="toggle-contact"] {
-  color: var(--toggle-text-active);
-  font-weight: 600;
-}
-
-/* Dynamic Page Content Control */
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  margin-top: 2rem;
-}
-
-.content-panel {
-  display: none; /* Hide panels globally by default */
-  font-size: 1.25rem;
-  font-weight: 400;
-}
-
-/* Advanced CSS selectors linking header radio states to main container panels */
-body:has(#toggle-about:checked) .view-about {
-  display: block;
-}
-
-body:has(#toggle-apps:checked) .view-apps {
-  display: flex; /* Updated to display flex layout when active */
-}
-
-body:has(#toggle-contact:checked) .view-contact {
-  display: block;
-}
-
-/* Fixed Footer Layout */
-footer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.footer-divider {
-  width: 100%;
-  border: none;
-  border-top: 1px solid var(--divider-color);
-}
-
-.footer-text {
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding-bottom: 0.5rem;
+}
+
+.header-divider {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 0 2rem;
+  flex: 1;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 1rem;
+  transition: font-size 0.2s ease;
 }
 
 .error {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 1rem;
+  transition: font-size 0.2s ease;
 }
 
 .error a {
@@ -212,112 +79,66 @@ footer {
   color: inherit;
 }
 
-/* ==========================================================================
-   Apps Panel Structural Styles
-   ========================================================================== */
-
-.view-apps {
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-/* Square container with relative positioning for absolute child objects */
-.appcard {
-  position: relative;
-  width: 280px;
-  height: 280px; /* Forces exact square container dimensions */
-  padding: 1rem;
-  border: 1px solid var(--divider-color);
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: rgba(255, 255, 255, 0.01);
-}
-
-/* Pin the SVG container directly into the top right corner */
-.app-svgs {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-/* Clean square App Icon styling matching an iOS squircle curve */
-.katchupapp {
-  width: 72px;
-  height: 72px; /* Perfect square dimensions */
-  border-radius: 22.5%; /* Rounded curves engineered to resemble Apple app icons */
-  overflow: hidden;
-  margin-bottom: 1.25rem; /* Delivers the explicit breathing room requested below */
+/* Rest of your existing styles */
+.socials {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.05);
+  width: fit-content;
+  gap: 0.625rem;
 }
 
-.katchupapp img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.socials:hover > :not(:hover) {
+  opacity: 0.4;
 }
 
-/* Text Element Layout Adaptations */
-.appcard h2 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.15rem;
-}
-
-.appcard h4 {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--toggle-text);
-}
-
-/* ==========================================================================
-   Theme Toggle System
-   ========================================================================== */
-
-.theme-toggle {
+button {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border: none;
-
-  /* Circular configuration */
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-
-  /* Inherits grey tone from the Segmented Control */
-  background-color: var(--toggle-bg);
-  transition:
-    background-color 0.2s ease,
-    transform 0.1s ease;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
 }
 
-.theme-toggle:active {
-  transform: scale(0.95);
-}
-
-/* Base icon state logic (Default Dark Mode configuration) */
 .theme-toggle svg:nth-child(1) {
-  display: block; /* Shows the Moon icon */
+  display: block;
 }
 .theme-toggle svg:nth-child(2) {
-  display: none; /* Hides the Sun icon */
+  display: none;
 }
 
-/* Active Light Mode orientation overrides */
 .light-mode .theme-toggle svg:nth-child(1) {
-  display: none; /* Hides the Moon icon */
-}
-.light-mode .theme-toggle svg:nth-child(2) {
-  display: block; /* Shows the Sun icon */
+  display: none;
 }
 
+.light-mode .theme-toggle svg:nth-child(2) {
+  display: block;
+}
+
+footer {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+footer .header-divider {
+  padding-bottom: 0.5rem;
+}
+
+.footertwo {
+  display: none;
+}
