@@ -15,15 +15,16 @@ body {
   font-family: "Inter", serif;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
   color: white;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
+html.light-mode body,
 .light-mode body {
   background-color: white;
   color: black;
@@ -55,7 +56,8 @@ main {
   display: flex;
   flex-direction: column;
   padding: 1.5rem 2rem 0 2rem;
-  flex: 1;
+  /* Removed flex: 1 and the old calc so the footer is pushed below the fold */
+  min-height: 100vh; /* header + main now fill (or exceed) the viewport; footer only appears on scroll */
 }
 
 .main-content {
@@ -79,7 +81,7 @@ main {
   color: inherit;
 }
 
-/* Rest of your existing styles */
+/* Social icons */
 .socials {
   display: flex;
   align-items: center;
@@ -88,7 +90,11 @@ main {
   gap: 0.625rem;
 }
 
-.socials:hover > :not(:hover) {
+.socials a {
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.socials:hover > a:not(:hover) {
   opacity: 0.4;
 }
 
@@ -136,7 +142,7 @@ footer {
 }
 
 footer .header-divider {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .footertwo {
