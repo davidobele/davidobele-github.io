@@ -1,0 +1,36 @@
+@media (max-width: 510px) {
+  .main-content,
+  .error {
+    font-size: 0.625rem;
+  }
+  .one svg,
+  .socials svg {
+    width: 18px;
+    height: 18px;
+  }
+  header,
+  main {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+  footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .footerone {
+    display: none;
+  }
+  .footertwo {
+    display: block;
+    font-size: 0.375rem;
+  }
+  .datetime {
+    display: none;
+  }
+  .header-content {
+    display: flex;
+    justify-content: right;
+  }
+}
